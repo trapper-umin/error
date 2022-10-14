@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ONE</title>
+</head>
+<body>
+    <p th:text="${'Name: '+data.getName()+' Surname: '+data.getSurname()+' Wallet: '+data.getWallet()+' Lock: '+data.getLock()}"></p>
+    <br>
+    <form th:method="GET" th:action="@{/data/{id}/edit(id=${data.getId()})}">
+        <input type="submit" value="Edit">
+    </form>
+    <br/>
+    <form th:method="DELETE" th:action="@{/data/{id}(id=${data.getId})}">
+        <input type="submit" value="Delete">
+    </form>
+    <br/>
+    <form th:method="GET" th:action="@{/data}">
+        <input type="submit" value="Back">
+    </form>
+</body>
+</html>

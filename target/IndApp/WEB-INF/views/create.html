@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CREATE</title>
+</head>
+<body>
+    <form th:method="POST" th:action="@{/data}" th:object="${data}">
+        <label for="name">Enter name</label>
+        <input type="text" th:field="*{name}" id="name">
+        <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        <br/>
+        <label for="surname">Enter surname</label>
+        <input type="text" th:field="*{surname}" id="surname">
+        <div style="color: red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+        <br/>
+        <label for="wallet">Enter wallet</label>
+        <input type="text" th:field="*{wallet}" id="wallet">
+        <div style="color: red" th:if="${#fields.hasErrors('wallet')}" th:errors="*{wallet}"></div>
+        <br/>
+        <input type="submit" value="Create">
+    </form>
+    <br/>
+    <form th:method="GET" th:action="@{/data}">
+        <input type="submit" value="Back">
+    </form>
+</body>
+</html>

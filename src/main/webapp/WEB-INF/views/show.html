@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DATA</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Wallet</th>
+            <th scope="col">Lock</th>
+            <th scope="col">Info</th>
+        </tr>
+        <tr th:each="data : ${data}">
+            <td th:text="${data.name}"></td>
+            <td th:text="${data.surname}"></td>
+            <td th:text="${data.wallet}"></td>
+            <td th:text="${data.lock}"></td>
+            <td>
+                <form th:method="get" th:action="@{/data/{id}(id=${data.getId()})}">
+                    <input type="submit" value="More">
+                </form>
+            </td>
+        </tr>
+    </table>
+    <hr/>
+    <form th:method="GET" th:action="@{/data/new}">
+        <input type="submit" value="Create new">
+    </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EDIT</title>
+</head>
+<body>
+    <form th:method="PATCH" th:action="@{/data/{id}(id=${data.getId()})}" th:object="${data}">
+        <label for="name">Enter new name</label>
+        <input type="text" th:field="*{name}" id="name" >
+        <br/>
+        <label for="surname">Enter new surname</label>
+        <input type="text" th:field="*{surname}" id="surname">
+        <br/>
+        <label for="wallet">Enter new wallet</label>
+        <input type="text" th:field="*{wallet}" id="wallet">
+        <br/>
+        <input type="submit" value="Update">
+    </form>
+    <form th:method="GET" th:action="@{/data/{id}(id=${data.getId()})}">
+        <input type="submit" value="Back">
+    </form>
+</body>
+</html>
